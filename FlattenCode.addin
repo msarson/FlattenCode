@@ -15,10 +15,9 @@
     </Import>
   </Runtime>
 
-  <!-- Main menu — provides Ctrl+Shift+F shortcut.
-       SharpDevelop surfaces Edit>Format items in the editor context menu,
-       so this also gives a single context menu entry with no duplication.
-       Wrapped in HasContinuation so it only appears when relevant. -->
+  <!-- Main menu — provides Ctrl+Shift+F shortcut AND surfaces once in the
+       CLW editor context menu (Edit>Format items appear there automatically).
+       HasContinuation condition hides it when caret is not near a continuation. -->
   <Path name="/SharpDevelop/Workbench/MainMenu/Edit/Format">
     <Condition name="HasContinuation" action="Exclude">
       <MenuItem id="FlattenCode"
@@ -28,7 +27,7 @@
     </Condition>
   </Path>
 
-  <!-- Embeditor — only shown when caret is in a writable continuation block -->
+  <!-- Embeditor has its own context menu path so needs its own entry -->
   <Path name="/SharpDevelop/ViewContent/ClarionGenTextEditor/ContextMenu">
     <Condition name="IsReadWriteText" action="Exclude">
       <Condition name="HasContinuation" action="Exclude">
