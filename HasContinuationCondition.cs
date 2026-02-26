@@ -13,7 +13,9 @@ namespace FlattenCode
         public bool IsValid(object caller, Condition condition)
         {
             if (WorkbenchSingleton.Workbench == null) return false;
-            var provider = WorkbenchSingleton.Workbench.ActiveContent as ITextEditorControlProvider;
+            var window = WorkbenchSingleton.Workbench.ActiveWorkbenchWindow;
+            if (window == null) return false;
+            var provider = window.ActiveViewContent as ITextEditorControlProvider;
             if (provider?.TextEditorControl?.ActiveTextAreaControl == null) return false;
 
             var doc  = provider.TextEditorControl.ActiveTextAreaControl.Document;
@@ -21,10 +23,11 @@ namespace FlattenCode
 
             string[] lines = doc.TextContent.Split(new[] { "\r\n", "\r", "\n" },
                                 System.StringSplitOptions.None);
+            if (line >= lines.Length) return false;
 
             // Show if caret line has a pipe, or the line before it does
-            return (line   < lines.Length && Flattener.FindContinuationPipe(lines[line])     >= 0)
-                || (line-1 >= 0           && Flattener.FindContinuationPipe(lines[line - 1]) >= 0);
+            return Flattener.FindContinuationPipe(lines[line]) >= 0
+                || (line > 0 && Flattener.FindContinuationPipe(lines[line - 1]) >= 0);
         }
     }
 }
