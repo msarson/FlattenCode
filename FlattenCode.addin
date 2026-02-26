@@ -17,9 +17,6 @@
 
   <!-- CLW source editor — only shown when caret is in/near a continuation block -->
   <Path name="/SharpDevelop/ViewContent/ClarionTextEditor/ContextMenu">
-    <MenuItem id="FlattenCodeSeparator"
-              type="Separator"
-              insertbefore="OpenSelectedViaRedFile"/>
     <Condition name="HasContinuation" action="Exclude">
       <MenuItem id="FlattenCode"
                 label="Flatten Code"
@@ -30,9 +27,6 @@
 
   <!-- Embeditor — only shown when caret is in a writable continuation block -->
   <Path name="/SharpDevelop/ViewContent/ClarionGenTextEditor/ContextMenu">
-    <MenuItem id="FlattenCodeGenSeparator"
-              type="Separator"
-              insertbefore="OpenSelectedViaRedFile"/>
     <Condition name="IsReadWriteText" action="Exclude">
       <Condition name="HasContinuation" action="Exclude">
         <MenuItem id="FlattenCodeGen"
