@@ -78,3 +78,7 @@ Restart the Clarion IDE.
 ## Compatibility
 
 Works with Clarion 10, 11, 11.1, and 12. All versions ship the same `ICSharpCode.*.dll` addin API (`2.1.0.2447`).
+
+## Feedback & bugs
+
+Found a bug or have a feature request? Please [open an issue](https://github.com/msarson/FlattenCode/issues).
