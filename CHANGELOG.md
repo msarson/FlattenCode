@@ -8,15 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.2] - 2026-02-26
 
 ### Changed
-- Context menu item now appears only once (removed duplicate caused by main menu registration)
-- Context menu item is now hidden entirely when the caret is not inside or adjacent to a
-  continuation block — it no longer appears on unrelated code
-- Removed `Ctrl+Shift+F` shortcut (context-menu-only interaction is cleaner)
+- Context menu item now appears only once (removed explicit context menu registration;
+  the main menu Edit→Format entry surfaces in the context menu naturally)
+- Context menu item and shortcut are hidden entirely when the caret is not inside or
+  adjacent to a continuation block — they no longer appear on unrelated code
 - Removed menu separators
 
 ### Fixed
 - Condition evaluator now uses `ActiveWorkbenchWindow.ActiveViewContent` instead of
   `ActiveContent`, which could lose the editor reference when a context menu opened
+
+### Restored
+- `Ctrl+Shift+F` shortcut (was accidentally removed in an earlier fix)
 
 ## [1.0.1] - 2026-02-26
 

@@ -15,13 +15,16 @@
     </Import>
   </Runtime>
 
-  <!-- CLW source editor — only shown when caret is in/near a continuation block -->
-  <Path name="/SharpDevelop/ViewContent/ClarionTextEditor/ContextMenu">
+  <!-- Main menu — provides Ctrl+Shift+F shortcut.
+       SharpDevelop surfaces Edit>Format items in the editor context menu,
+       so this also gives a single context menu entry with no duplication.
+       Wrapped in HasContinuation so it only appears when relevant. -->
+  <Path name="/SharpDevelop/Workbench/MainMenu/Edit/Format">
     <Condition name="HasContinuation" action="Exclude">
       <MenuItem id="FlattenCode"
                 label="Flatten Code"
-                class="FlattenCode.FlattenCodeCommand"
-                insertbefore="OpenSelectedViaRedFile"/>
+                shortcut="Control|Shift|F"
+                class="FlattenCode.FlattenCodeCommand"/>
     </Condition>
   </Path>
 
