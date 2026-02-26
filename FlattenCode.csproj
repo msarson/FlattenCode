@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <AssemblyName>FlattenCode</AssemblyName>
+    <RootNamespace>FlattenCode</RootNamespace>
+    <TargetFramework>net40</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseWindowsForms>True</UseWindowsForms>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <LangVersion>12.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ICSharpCode.Core">
+      <HintPath>$(ClarionBin)\ICSharpCode.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop">
+      <HintPath>$(ClarionBin)\ICSharpCode.SharpDevelop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>$(ClarionBin)\ICSharpCode.TextEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
