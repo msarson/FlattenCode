@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-02-26
+
+### Changed
+- Context menu item now appears only once (removed duplicate caused by main menu registration)
+- Context menu item is now hidden entirely when the caret is not inside or adjacent to a
+  continuation block — it no longer appears on unrelated code
+- Removed `Ctrl+Shift+F` shortcut (context-menu-only interaction is cleaner)
+- Removed menu separators
+
+### Fixed
+- Condition evaluator now uses `ActiveWorkbenchWindow.ActiveViewContent` instead of
+  `ActiveContent`, which could lose the editor reference when a context menu opened
+
 ## [1.0.1] - 2026-02-26
 
 ### Fixed
@@ -26,5 +39,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Available in Embeditor context menu (writable embed regions only)
 - Compatible with Clarion 10, 11, 11.1, and 12
 
+[1.0.2]: https://github.com/msarson/FlattenCode/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/msarson/FlattenCode/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/msarson/FlattenCode/releases/tag/v1.0.0
