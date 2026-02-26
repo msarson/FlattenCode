@@ -63,13 +63,17 @@ or set the `CLARION_BIN` environment variable, or create a `Directory.Build.prop
 
 ## Deploying
 
-Copy the built `FlattenCode.dll` and `FlattenCode.addin` to a subfolder under your Clarion accessory addins directory:
+**Pre-built:** Download the latest `FlattenCode-v*.zip` from the [Releases](https://github.com/msarson/FlattenCode/releases) page.
+
+Extract and copy both files to a subfolder under your Clarion accessory addins directory:
 
 ```
 C:\Clarion\Clarion11.1\accessory\addins\FlattenCode\
 ```
 
 Restart the Clarion IDE.
+
+**From source:** build (see above), then copy `bin\Release\net40\FlattenCode.dll` and `FlattenCode.addin` to the same location.
 
 ## Compatibility
 
