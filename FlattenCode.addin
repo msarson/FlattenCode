@@ -10,41 +10,36 @@
   </Manifest>
 
   <Runtime>
-    <Import assembly="FlattenCode.dll"/>
+    <Import assembly="FlattenCode.dll">
+      <ConditionEvaluator name="HasContinuation" class="FlattenCode.HasContinuationCondition"/>
+    </Import>
   </Runtime>
 
-  <!-- Main menu registration — this is what makes the shortcut key actually work.
-       SharpDevelop only processes keyboard shortcuts from main menu items, not context menus. -->
-  <Path name="/SharpDevelop/Workbench/MainMenu/Edit/Format">
-    <MenuItem id="FlattenCodeMainMenu"
-              label="Flatten Code"
-              shortcut="Control|Shift|F"
-              class="FlattenCode.FlattenCodeCommand"/>
-  </Path>
-
-  <!-- CLW source editor (also appears in ClarionWinTextEditor which includes this path) -->
+  <!-- CLW source editor — only shown when caret is in/near a continuation block -->
   <Path name="/SharpDevelop/ViewContent/ClarionTextEditor/ContextMenu">
     <MenuItem id="FlattenCodeSeparator"
               type="Separator"
               insertbefore="OpenSelectedViaRedFile"/>
-    <MenuItem id="FlattenCode"
-              label="Flatten Code"
-              shortcut="Control|Shift|F"
-              class="FlattenCode.FlattenCodeCommand"
-              insertbefore="OpenSelectedViaRedFile"/>
+    <Condition name="HasContinuation" action="Exclude">
+      <MenuItem id="FlattenCode"
+                label="Flatten Code"
+                class="FlattenCode.FlattenCodeCommand"
+                insertbefore="OpenSelectedViaRedFile"/>
+    </Condition>
   </Path>
 
-  <!-- Embeditor — only enabled when caret is in a writable embed region -->
+  <!-- Embeditor — only shown when caret is in a writable continuation block -->
   <Path name="/SharpDevelop/ViewContent/ClarionGenTextEditor/ContextMenu">
     <MenuItem id="FlattenCodeGenSeparator"
               type="Separator"
               insertbefore="OpenSelectedViaRedFile"/>
-    <Condition name="IsReadWriteText" action="Disable">
-      <MenuItem id="FlattenCodeGen"
-                label="Flatten Code"
-                shortcut="Control|Shift|F"
-                class="FlattenCode.FlattenCodeCommand"
-                insertbefore="OpenSelectedViaRedFile"/>
+    <Condition name="IsReadWriteText" action="Exclude">
+      <Condition name="HasContinuation" action="Exclude">
+        <MenuItem id="FlattenCodeGen"
+                  label="Flatten Code"
+                  class="FlattenCode.FlattenCodeCommand"
+                  insertbefore="OpenSelectedViaRedFile"/>
+      </Condition>
     </Condition>
   </Path>
 

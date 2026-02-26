@@ -99,7 +99,7 @@ namespace FlattenCode
         /// Handles Clarion's doubled-quote escape: '' inside a string is a
         /// literal quote character, not the end of the string.
         /// </summary>
-        private static int FindContinuationPipe(string line)
+        internal static int FindContinuationPipe(string line)
         {
             bool inString = false;
             for (int i = 0; i < line.Length; i++)
