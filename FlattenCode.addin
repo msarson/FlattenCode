@@ -15,10 +15,8 @@
     </Import>
   </Runtime>
 
-  <!-- Main menu — provides Ctrl+Shift+F shortcut AND surfaces once in the
-       CLW editor context menu (Edit>Format items appear there automatically).
-       HasContinuation condition hides it when caret is not near a continuation. -->
-  <Path name="/SharpDevelop/Workbench/MainMenu/Edit/Format">
+  <!-- Format submenu — /Edit/Format/Format is the inner "Format" submenu item -->
+  <Path name="/SharpDevelop/Workbench/MainMenu/Edit/Format/Format">
     <Condition name="HasContinuation" action="Exclude">
       <MenuItem id="FlattenCode"
                 label="Flatten Code"
