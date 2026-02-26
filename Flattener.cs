@@ -96,6 +96,8 @@ namespace FlattenCode
         /// <summary>
         /// Returns the index of the first | that is outside a string literal,
         /// or -1 if none found.
+        /// Handles Clarion's doubled-quote escape: '' inside a string is a
+        /// literal quote character, not the end of the string.
         /// </summary>
         private static int FindContinuationPipe(string line)
         {
@@ -104,7 +106,12 @@ namespace FlattenCode
             {
                 char c = line[i];
                 if (c == '\'')
-                    inString = !inString;
+                {
+                    if (inString && i + 1 < line.Length && line[i + 1] == '\'')
+                        i++; // doubled quote '' inside string — skip both, stay in string
+                    else
+                        inString = !inString;
+                }
                 else if (c == '|' && !inString)
                     return i;
             }
