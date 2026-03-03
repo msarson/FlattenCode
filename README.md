@@ -63,9 +63,9 @@ or set the `CLARION_BIN` environment variable, or create a `Directory.Build.prop
 
 ## Deploying
 
-**Pre-built:** Download the latest `FlattenCode-v*.zip` from the [Releases](https://github.com/msarson/FlattenCode/releases) page.
+The easiest way to install is via **[Addin Finder](https://github.com/msarson/ClarionAddinFinder)** — the Clarion IDE addin manager. Search for *Flatten Code* and click Install.
 
-Extract and copy both files to a subfolder under your Clarion accessory addins directory:
+**Manual install:** Download the latest `FlattenCode.dll` and `FlattenCode.addin` from the [Releases](https://github.com/msarson/FlattenCode/releases) page and copy both files to:
 
 ```
 C:\Clarion\Clarion11.1\accessory\addins\FlattenCode\
