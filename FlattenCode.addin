@@ -15,11 +15,16 @@
     </Import>
   </Runtime>
 
+  <Path name="/Workspace/Autostart">
+    <Class id="FlattenCodeRegisterIcons" class="FlattenCode.RegisterIconsCommand"/>
+  </Path>
+
   <!-- Format submenu — /Edit/Format/Format is the inner "Format" submenu item -->
   <Path name="/SharpDevelop/Workbench/MainMenu/Edit/Format/Format">
     <Condition name="HasContinuation" action="Exclude">
       <MenuItem id="FlattenCode"
                 label="Flatten Code"
+                icon="FlattenCode.FlattenCodeIcon"
                 shortcut="Control|Shift|F"
                 class="FlattenCode.FlattenCodeCommand"/>
     </Condition>
@@ -31,6 +36,7 @@
       <Condition name="HasContinuation" action="Exclude">
         <MenuItem id="FlattenCodeGen"
                   label="Flatten Code"
+                  icon="FlattenCode.FlattenCodeIcon"
                   class="FlattenCode.FlattenCodeCommand"
                   insertbefore="OpenSelectedViaRedFile"/>
       </Condition>
