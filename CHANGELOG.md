@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-08-31
+
+### Fixed
+- The `.addin` manifest now declares the real version. Every release since 1.0.1 shipped a
+  manifest still saying `version="1.0"`, so Addin Finder offered an update that installing
+  could never clear. A Release-build check (`CheckAddinVersion`) now fails the build when the
+  manifest and project version disagree, so this cannot happen again.
+
 ## [1.0.3] - 2026-03-03
 
 ### Added
@@ -47,6 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Available in Embeditor context menu (writable embed regions only)
 - Compatible with Clarion 10, 11, 11.1, and 12
 
+[1.0.4]: https://github.com/msarson/FlattenCode/compare/v1.0.3...v1.0.4
+[1.0.3]: https://github.com/msarson/FlattenCode/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/msarson/FlattenCode/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/msarson/FlattenCode/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/msarson/FlattenCode/releases/tag/v1.0.0

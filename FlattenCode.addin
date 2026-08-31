@@ -4,7 +4,7 @@
        description = "Flattens Clarion line continuations (|) into single logical lines">
 
   <Manifest>
-    <Identity name="FlattenCode.Addin" version="1.0.3"/>
+    <Identity name="FlattenCode.Addin" version="1.0.4"/>
     <Dependency addin="SharpDevelop" version="2.1"/>
     <Dependency addin="SoftVelocity.ClarionBinding"/>
   </Manifest>
